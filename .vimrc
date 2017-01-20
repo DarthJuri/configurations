@@ -9,12 +9,14 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'powerline/powerline'
 Plugin 'scrooloose/syntastic'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'christoomey/vim-tmux-navigator'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -54,8 +56,14 @@ set number
 set encoding=utf-8
 set fileencodings=utf-8
 set autoindent
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
+
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+set laststatus=2
+set t_Co=256
 
 syntax enable
 set background=dark
